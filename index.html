@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Love Letter To You</title>
+
+<style>
+/* GLOBAL */
+body {
+    margin:0;
+    background:#0a0a0d;
+    font-family:"Playfair Display", serif;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+:root {
+    --accent:#ff4f9a;
+    --accent-grad:linear-gradient(135deg,#ff4f9a,#ffafcc,#ff4f9a);
+}
+
+/* Fade-in */
+.fade-in {
+    opacity:0;
+    transform:translateY(20px);
+    transition:1s ease;
+}
+.fade-in.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* HERO */
+.hero {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80") center/cover;
+    opacity:0.3;
+    filter:blur(6px) brightness(0.5);
+}
+
+.hero h1 {
+    font-size:2.8rem;
+    color:#fff;
+    text-shadow:0 0 25px var(--accent);
+    z-index:3;
+}
+
+/* Floating glow orb */
+.light-orb {
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,rgba(255,100,150,0.6),rgba(0,0,0,0) 70%);
+    filter:blur(50px);
+    animation:float 6s ease-in-out infinite alternate;
+    z-index:1;
+}
+@keyframes float {
+    0%{ transform:translate(-50px,-50px); }
+    100%{ transform:translate
