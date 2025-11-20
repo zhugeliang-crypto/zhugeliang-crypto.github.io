@@ -1,74 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>My Love Letter To You</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love Letter</title>
 
 <style>
-/* GLOBAL */
 body {
-    margin:0;
-    background:#0a0a0d;
-    font-family:"Playfair Display", serif;
-    color:#fff;
-    overflow-x:hidden;
+    margin: 0;
+    background: #0a0a0d;
+    font-family: "Playfair Display", serif;
+    color: white;
+    overflow-x: hidden;
 }
 
-:root {
-    --accent:#ff4f9a;
-    --accent-grad:linear-gradient(135deg,#ff4f9a,#ffafcc,#ff4f9a);
-}
-
-/* Fade-in */
+/* MAIN FADE-IN */
 .fade-in {
-    opacity:0;
-    transform:translateY(20px);
-    transition:1s ease;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 1s ease;
 }
 .fade-in.visible {
-    opacity:1;
-    transform:translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
-    position:relative;
-    overflow:hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .hero::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80") center/cover;
-    opacity:0.3;
-    filter:blur(6px) brightness(0.5);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80")
+                center/cover no-repeat;
+    filter: brightness(0.35) blur(3px);
+    z-index: 1;
 }
 
 .hero h1 {
-    font-size:2.8rem;
-    color:#fff;
-    text-shadow:0 0 25px var(--accent);
-    z-index:3;
+    font-size: 2.8rem;
+    z-index: 3;
+    color: white;
+    text-shadow: 0px 0px 25px #ff4f9a;
 }
 
-/* Floating glow orb */
+/* Floating orb */
 .light-orb {
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:radial-gradient(circle,rgba(255,100,150,0.6),rgba(0,0,0,0) 70%);
-    filter:blur(50px);
-    animation:float 6s ease-in-out infinite alternate;
-    z-index:1;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255,100,150,0.6), rgba(0,0,0,0));
+    filter: blur(55px);
+    animation: float 6s ease-in-out infinite alternate;
+    z-index: 1;
 }
 @keyframes float {
-    0%{ transform:translate(-50px,-50px); }
-    100%{ transform:translate
+    0% { transform: translate(-40px, -40px); }
+    100% { transform: translate(40px, 40px); }
+}
+
+/* SECTIONS */
+.section {
+    max-width: 750px;
+    padding: 60px 30px;
+    margin: auto;
+    text-align: left;
+    z-index: 3;
+}
+
+.section h2 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #ff4f9a, #ffafcc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #e6e6e6;
+}
+
+/* TOUCH GLOW */
+#touchGlow {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255,100,180,0.6), rgba(0,0,0,0));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+/* FLOATING HEARTS */
+.heart {
+    position: fixed;
+    font-size: 28px;
+    color: #ff5fa2;
+    animation: floatUp 1.8s ease-out forwards;
+    pointer-events: none;
+}
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-120px) scale(1.8); }
+}
+
+@media(max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .section p { font-size: 1.1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="touchGlow"></div>
+
+<section class="hero fade-in">
+    <div class="light-orb"></div>
+    <h1>My Love, This Is My Confession To You</h1>
+</section>
+
+<section class="section fade-in">
+    <h2>To My Beautiful Wife,</h2>
+    <p>
+        From the moment our paths crossed, everything changed —  
+        the days softened, the nights grew warmer,  
+        and the world felt beautifully different.
+    </p>
+    <p>
+        This page is my confession…  
+        a place to finally say the words my heart carries every moment:
+        <br><br>
+        <strong>You are the love of my life.</strong>
+    </p>
+</section>
+
+<section class="section fade-in">
+    <h2>Every Day, I Choose You</h2>
+    <p>
+        I choose you in the simple moments,  
+        the loud moments,  
+        the quiet nights,  
+        and every new morning.  
+        <br><br>
+        Again and again, forever — I choose you.
+    </p>
+</section>
+
+<section class="section fade-in">
+    <h2>Forever Yours</h2>
+    <p>
+        This page is my vow wrapped in light:  
+        endlessly, deeply, beautifully —  
+        I love you.
+    </p>
+</section>
+
+<script>
+// Fade-in Scroll Effect
+const obs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add("visible");
+    });
+});
+document.querySelectorAll(".fade-in").forEach(el=>obs.observe(el));
+
+// Touch Glow
+const glow=document.getElementById("touchGlow");
+document.addEventListener("touchmove",e=>{
+    let t=e.touches[0];
+    glow.style.left=t.clientX+"px";
+    glow.style.top=t.clientY+"px";
+    glow.style.opacity=1;
+});
+document.addEventListener("touchend",()=>glow.style.opacity=0);
+
+// Floating Hearts
+function spawnHeart(x,y){
+    const h=document.createElement("div");
+    h.classList.add("heart");
+    h.style.left=x+"px";
+    h.style.top=y+"px";
+    h.textContent="❤";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1800);
+}
+
+document.addEventListener("click",e=>spawnHeart(e.clientX,e.clientY));
+document.addEventListener("touchstart",e=>{
+    let t=e.touches[0];
+    spawnHeart(t.clientX,t.clientY);
+});
+document.addEventListener("touchmove",e=>{
+    let t=e.touches[0];
+    spawnHeart(t.clientX,t.clientY);
+});
+</script>
+
+</body>
+</html>
+
